@@ -3,14 +3,19 @@ let video;
 let hands = [];
 
 function preload() {
-  handPose = ml5.handPose();
+  handPose = ml5.handPose({flipped:true});
 }
 
+function mousePressed(){
+  console.log(hands);
+}
 
 function setup() {
   createCanvas(640, 480);
+  painting = createGraphics (640,480);
+  painting.clear ();
     // Create the video and hide it
-    video = createCapture(VIDEO);
+    video = createCapture(VIDEO,{flipped: true});
     video.size(640, 480);
     video.hide();
   
@@ -31,10 +36,14 @@ function draw() {
     let hand = hands[i];
     for (let j = 0; j < hand.keypoints.length; j++) {
       let keypoint = hand.keypoints[j];
-      fill(0, 255, 0);
-      noStroke();
-      circle(keypoint.x, keypoint.y, 10);
+      let index = hand.keypoints [0];
+      //fill(0, 255, 0);
+      painting.noStroke();
+      //circle(keypoint.x, keypoint.y, 10);
+      painting.fill(0,0,255);
+      painting.circle (index.x, index.y, 5, 5);
     }
   }
+  image(painting, 0, 0);
 }
 
