@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>pose de mano</title>
+    <title>camara inteligente</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -15,6 +15,24 @@
   </head>
 
   <body>
+    <hi>
+      detección multiples de onjetos usando modelo preentrenado en Tensorflow.js
+    </hi>
+    
+    <p>wait for the model to load before clicking the button to enable the webcam - at which point it will become visible to use.</p>
+
+    <section id="demos" class="invisible">
+      <p>hold some objects up close to your webcam to get a real-time classification! when ready click "enable webcam" below and accept access </p>
+
+      <div id="liveView" class="camView">
+        <button id="webcamButton">Enable webcam</button>
+        <video id="webcam" autoplay muted widht="640" height="480"></video>
+      </div>
+    </section>
+
+    <script src="http://cdn.jsdelivr.net"></script>
+    <script src="sketch.js"></script>
+
     <script src="sketch.js"></script>
   </body>
 </html>
